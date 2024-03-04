@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Purify Service Provider Sidebar</title>
+  <style>
+    /* Styles for the sidebar */
+    .sidebar {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #0887e2a0;
+      padding-top: 20px;
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar ul li {
+      padding: 10px 15px;
+      border-bottom: 1px solid #07060a;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #0c0b0ba0;
+    }
+
+    .sidebar ul li a:hover {
+      color: #f81166;
+    }
+
+    /* Styles for submenu */
+    .submenu {
+      display: none;
+      padding-left: 20px;
+    }
+
+    .sidebar ul li.active .submenu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <ul>
+      <li class="menu-item">
+        <a href="#">Master</a>
+        <ul class="submenu">
+          <li><a href="client.html">Client</a></li>
+          <li><a href="parts.html">Parts</a></li>
+          <li><a href="brand.html">Brand</a></li>
+          <li><a href="city.html">City</a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#">Service Due</a>
+        <ul class="submenu">
+          <li><a href="#">Menu A</a></li>
+          <li><a href="#">Menu B</a></li>
+          <li><a href="#">Menu C</a></li>
+          <!-- Add more submenu items here if needed -->
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#">Pending Amount</a>
+        <ul class="submenu">
+          <li><a href="#">Menu A</a></li>
+          <li><a href="#">Menu B</a></li>
+          <li><a href="#">Menu C</a></li>
+          <!-- Add more submenu items here if needed -->
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#">History</a>
+        <ul class="submenu">
+          <li><a href="#">Menu A</a></li>
+          <li><a href="#">Menu B</a></li>
+          <li><a href="#">Menu C</a></li>
+          <!-- Add more submenu items here if needed -->
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#">Summary</a>
+        <ul class="submenu">
+          <li><a href="#">Menu A</a></li>
+          <li><a href="#">Menu B</a></li>
+          <li><a href="#">Menu C</a></li>
+          <!-- Add more submenu items here if needed -->
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <!-- Content goes here -->
+  </div>
+
+  <script>
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if (item.classList.contains('active')) {
+          item.classList.remove('active');
+        } else {
+          const activeItem = document.querySelector('.menu-item.active');
+          if (activeItem) {
+            activeItem.classList.remove('active');
+          }
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
