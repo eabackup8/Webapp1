@@ -7,11 +7,59 @@
     <title>Brand Information Form</title>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Styles for the sidebar */
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #0887e2a0;
+            padding-top: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px 15px;
+            border-bottom: 1px solid #07060a;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #0c0b0ba0;
+        }
+
+        .sidebar ul li a:hover {
+            color: #f81166;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li class="menu-item">
+                <a href="#">Master</a>
+                <ul class="submenu">
+                    <li><a href="client.html">Client</a></li>
+                    <li><a href="parts.html">Parts</a></li>
+                    <li><a href="brand.html">Brand</a></li>
+                    <li><a href="city.html">City</a></li>
+                </ul>
+            </li>
+            <!-- Add other sidebar menu items as needed -->
+        </ul>
+    </div>
+
     <div class="container mx-auto py-8">
-        <h1 class="text-center text-3xl font-semibold text-gray-800 mb-8">Part Information Form</h1>
+        <h1 class="text-center text-3xl font-semibold text-gray-800 mb-8">Brand Information Form</h1>
         <form id="partForm" class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
             <div class="mb-6 border border-gray-300 rounded-md">
                 <label for="part" class="block text-sm font-medium text-gray-700">Brand:</label>
@@ -19,24 +67,34 @@
                     class="mt-1 p-2 w-full border-none rounded-md focus:ring focus:ring-blue-400 focus:outline-none">
             </div>
 
+            <!-- Include other form fields as needed -->
+
             <div class="flex justify-end">
                 <button type="submit"
                     class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     Submit
                 </button>
-                <button type="button"
-                    class="ml-4 inline-flex items-center px-4 py-2 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                    onclick="goToMainMenu()">
-                    Back to Main Menu
-                </button>
             </div>
         </form>
     </div>
 
+    <!-- JavaScript to handle sidebar menu item clicks -->
     <script>
-        function goToMainMenu() {
-            window.location.href = "../index.html";
-        }
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                } else {
+                    const activeItem = document.querySelector('.menu-item.active');
+                    if (activeItem) {
+                        activeItem.classList.remove('active');
+                    }
+                    item.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 
