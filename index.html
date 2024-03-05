@@ -3,17 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Water Purify Service Provider Sidebar</title>
+  <title>Water Purify Service Provider Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <style>
+    /* Global styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
     /* Styles for the sidebar */
     .sidebar {
-      height: 100%;
-      width: 200px;
+      height: 100vh;
+      width: 240px; /* Adjust sidebar width */
       position: fixed;
       top: 0;
       left: 0;
-      background-color: #0887e2a0;
+      background-color: #252f3f; /* Dark blue background */
       padding-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: width 0.3s ease; /* Add transition for smoother sidebar animation */
+    }
+
+    .sidebar:hover {
+      width: 260px; /* Expand sidebar on hover */
     }
 
     .sidebar ul {
@@ -24,16 +39,24 @@
 
     .sidebar ul li {
       padding: 10px 15px;
-      border-bottom: 1px solid #07060a;
+      border-bottom: 1px solid #374151; /* Darker border color */
     }
 
     .sidebar ul li a {
       text-decoration: none;
-      color: #0c0b0ba0;
+      color: #d1d5db; /* Light text color */
+      font-size: 16px;
+      display: flex;
+      align-items: center;
     }
 
-    .sidebar ul li a:hover {
-      color: #f81166;
+    .sidebar ul li a i {
+      margin-right: 10px;
+    }
+
+    .sidebar ul li:hover,
+    .sidebar ul li.active {
+      background-color: #374151; /* Darker background color on hover/active */
     }
 
     /* Styles for submenu */
@@ -45,13 +68,34 @@
     .sidebar ul li.active .submenu {
       display: block;
     }
+
+    /* Content area styles */
+    #content {
+      margin-left: 260px; /* Ensure content doesn't overlap with sidebar */
+      padding: 20px;
+    }
+
+    /* Custom button styles */
+    .btn {
+      background-color: #4c51bf; /* Purple button color */
+      color: #fff; /* White text color */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4338ca; /* Darker purple on hover */
+    }
   </style>
 </head>
 <body>
   <div class="sidebar">
     <ul>
       <li class="menu-item">
-        <a href="#">Master</a>
+        <a href="#"><i class="fas fa-home"></i> Master</a> <!-- Icon for Master -->
         <ul class="submenu">
           <li><a href="client.html">Client</a></li>
           <li><a href="parts.html">Parts</a></li>
@@ -60,38 +104,38 @@
         </ul>
       </li>
       <li class="menu-item">
-        <a href="#">Service Due</a>
+        <a href="#"><i class="fas fa-calendar"></i> Service Due</a> <!-- Icon for Service Due -->
         <ul class="submenu">
-          <li><a href="#">Menu A</a></li>
-          <li><a href="#">Menu B</a></li>
-          <li><a href="#">Menu C</a></li>
+          <li><a href="#">Service A</a></li>
+          <li><a href="#">Service B</a></li>
+          <li><a href="#">Service C</a></li>
           <!-- Add more submenu items here if needed -->
         </ul>
       </li>
       <li class="menu-item">
-        <a href="#">Pending Amount</a>
+        <a href="#"><i class="fas fa-money-bill"></i> Pending Amount</a> <!-- Icon for Pending Amount -->
         <ul class="submenu">
-          <li><a href="#">Menu A</a></li>
-          <li><a href="#">Menu B</a></li>
-          <li><a href="#">Menu C</a></li>
+          <li><a href="#">Amount A</a></li>
+          <li><a href="#">Amount B</a></li>
+          <li><a href="#">Amount C</a></li>
           <!-- Add more submenu items here if needed -->
         </ul>
       </li>
       <li class="menu-item">
-        <a href="#">History</a>
+        <a href="#"><i class="fas fa-history"></i> History</a> <!-- Icon for History -->
         <ul class="submenu">
-          <li><a href="#">Menu A</a></li>
-          <li><a href="#">Menu B</a></li>
-          <li><a href="#">Menu C</a></li>
+          <li><a href="#">History A</a></li>
+          <li><a href="#">History B</a></li>
+          <li><a href="#">History C</a></li>
           <!-- Add more submenu items here if needed -->
         </ul>
       </li>
       <li class="menu-item">
-        <a href="#">Summary</a>
+        <a href="#"><i class="fas fa-chart-pie"></i> Summary</a> <!-- Icon for Summary -->
         <ul class="submenu">
-          <li><a href="#">Menu A</a></li>
-          <li><a href="#">Menu B</a></li>
-          <li><a href="#">Menu C</a></li>
+          <li><a href="#">Summary A</a></li>
+          <li><a href="#">Summary B</a></li>
+          <li><a href="#">Summary C</a></li>
           <!-- Add more submenu items here if needed -->
         </ul>
       </li>
@@ -100,6 +144,7 @@
 
   <div id="content">
     <!-- Content goes here -->
+    <button class="btn">Example Button</button>
   </div>
 
   <script>
